@@ -11,7 +11,7 @@ var socketio = require('socket.io');
 var express = require('express');
 
 var appModule = require('./app_modules');
-var res = appModule.util.add(100,200);
+var res = appModule.util.add(100,201);
 console.log("res:" + res);
 
 //
@@ -49,7 +49,8 @@ io.on('connection', function (socket) {
       socket.get('name', function (err, name) {
         var data = {
           name: name,
-          text: text
+          text: text,
+          datetime: new Date()
         };
 
         broadcast('message', data);

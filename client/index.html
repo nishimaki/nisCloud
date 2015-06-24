@@ -42,6 +42,12 @@
         $scope.setName = function setName() {
           socket.emit('identify', $scope.name);
         };
+        
+        $scope.editDate = function editDate(datetime) {
+          var m = moment(datetime);
+          var formatDate = m.format('YYYY/MM/DD HH:mm:ss.SSS');
+          return formatDate;
+        };
       }
     </script>
   </head>
@@ -71,12 +77,14 @@
               <tr>
                 <th class="span2">Name</th>
                 <th class="span7">Text</th>
+                <th class="span4">Date</th>
               </tr>
             </thead>
             <tbody>
               <tr ng-repeat="msg in messages">
                 <td class="span2" ng-bind="msg.name"></td>
                 <td class="span7" ng-bind="msg.text"></td>
+                <td class="span4" ng-bind="editDate(msg.datetime)"></td>
               </tr>
             </tbody>
           </table>
@@ -96,5 +104,6 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/angular.min.js"></script>
+    <script src="/js/moment-with-locales.js"></script>
   </body>
 </html>
