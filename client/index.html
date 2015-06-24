@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="ja" ng-app="myApp">
   <head>
     <title>Chat Example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,48 +11,49 @@
       }
     </style>
     <script>
-      function ChatController($scope) {
-        var socket = io.connect();
+      // function ChatController($scope) {
+      //   var socket = io.connect();
 
-        $scope.messages = [];
-        $scope.roster = [];
-        $scope.name = '';
-        $scope.text = '';
+      //   $scope.messages = [];
+      //   $scope.roster = [];
+      //   $scope.name = '';
+      //   $scope.text = '';
 
-        socket.on('connect', function () {
-          $scope.setName();
-        });
+      //   socket.on('connect', function () {
+      //     $scope.setName();
+      //   });
 
-        socket.on('message', function (msg) {
-          $scope.messages.push(msg);
-          $scope.$apply();
-        });
+      //   socket.on('message', function (msg) {
+      //     $scope.messages.push(msg);
+      //     $scope.$apply();
+      //   });
 
-        socket.on('roster', function (names) {
-          $scope.roster = names;
-          $scope.$apply();
-        });
+      //   socket.on('roster', function (names) {
+      //     $scope.roster = names;
+      //     $scope.$apply();
+      //   });
 
-        $scope.send = function send() {
-          console.log('Sending message:', $scope.text);
-          socket.emit('message', $scope.text);
-          $scope.text = '';
-        };
+      //   $scope.send = function send() {
+      //     console.log('Sending message:', $scope.text);
+      //     socket.emit('message', $scope.text);
+      //     $scope.text = '';
+      //   };
 
-        $scope.setName = function setName() {
-          socket.emit('identify', $scope.name);
-        };
+      //   $scope.setName = function setName() {
+      //     socket.emit('identify', $scope.name);
+      //   };
         
-        $scope.editDate = function editDate(datetime) {
-          var m = moment(datetime);
-          var formatDate = m.format('YYYY/MM/DD HH:mm:ss.SSS');
-          return formatDate;
-        };
-      }
+      //   $scope.editDate = function editDate(datetime) {
+      //     var m = moment(datetime);
+      //     var formatDate = m.format('YYYY/MM/DD HH:mm:ss.SSS');
+      //     return formatDate;
+      //   };
+      // }
     </script>
   </head>
   <body>
-    <div class="container" ng-controller="ChatController">
+    <!--<div class="container" ng-controller="ChatController">-->
+    <div class="container" ng-controller="AppCtrl">
       <div class="navbar navbar-fixed-top navbar-inverse">
         <div class="navbar-inner">
           <div class="pull-right">
@@ -105,5 +106,6 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/angular.min.js"></script>
     <script src="/js/moment-with-locales.min.js"></script>
+    <script src="/js/ctrlApp.js"></script>
   </body>
 </html>
