@@ -10,6 +10,10 @@ var async = require('async');
 var socketio = require('socket.io');
 var express = require('express');
 
+var appModule = require('./app_modules');
+var res = appModule.util.add(100,200);
+console.log("res:" + res);
+
 //
 // ## SimpleServer `SimpleServer(obj)`
 //
