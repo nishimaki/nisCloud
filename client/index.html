@@ -10,50 +10,9 @@
         padding-top: 60px;
       }
     </style>
-    <script>
-      // function ChatController($scope) {
-      //   var socket = io.connect();
-
-      //   $scope.messages = [];
-      //   $scope.roster = [];
-      //   $scope.name = '';
-      //   $scope.text = '';
-
-      //   socket.on('connect', function () {
-      //     $scope.setName();
-      //   });
-
-      //   socket.on('message', function (msg) {
-      //     $scope.messages.push(msg);
-      //     $scope.$apply();
-      //   });
-
-      //   socket.on('roster', function (names) {
-      //     $scope.roster = names;
-      //     $scope.$apply();
-      //   });
-
-      //   $scope.send = function send() {
-      //     console.log('Sending message:', $scope.text);
-      //     socket.emit('message', $scope.text);
-      //     $scope.text = '';
-      //   };
-
-      //   $scope.setName = function setName() {
-      //     socket.emit('identify', $scope.name);
-      //   };
-        
-      //   $scope.editDate = function editDate(datetime) {
-      //     var m = moment(datetime);
-      //     var formatDate = m.format('YYYY/MM/DD HH:mm:ss.SSS');
-      //     return formatDate;
-      //   };
-      // }
-    </script>
   </head>
   <body>
-    <!--<div class="container" ng-controller="ChatController">-->
-    <div class="container" ng-controller="AppCtrl">
+    <div class="container" ng-controller="ChatCtrl">
       <div class="navbar navbar-fixed-top navbar-inverse">
         <div class="navbar-inner">
           <div class="pull-right">
@@ -107,5 +66,6 @@
     <script src="/js/angular.min.js"></script>
     <script src="/js/moment-with-locales.min.js"></script>
     <script src="/js/ctrlApp.js"></script>
+    <script src="/js/ctrlChat.js"></script>
   </body>
 </html>
