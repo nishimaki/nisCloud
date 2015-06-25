@@ -1,18 +1,20 @@
 <div ng-controller="AppCtrl" ng-init="init()">
-  <div style="float : left; width:20%">
-    <ul>
-      <li>
-        <a ui-sref="home.portal">ポータル</a>
-      </li>
-      <li>
-        <a ui-sref="home.chat">チャット</a>
-      </li>
-      <li>
-        <a ui-sref="setting">設定</a>
-      </li>
-    </ul>
-  </div>
-  <div style="float : none">
-    <div ui-view></div>
+  <div class="row">
+    <div class="span2">
+      <ul class="nav nav-list well">
+        <li>
+          <a ui-sref="home.portal">ポータル</a>
+        </li>
+        <li>
+          <a ui-sref="home.chat">チャット</a>
+        </li>
+        <li>
+          <a ui-sref="setting">設定</a>
+        </li>
+      </ul>
+    </div>
+    <div class="span10">
+      <div ui-view></div>
+    </div>
   </div>
 </div>

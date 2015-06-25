@@ -12,15 +12,13 @@
           <thead>
             <tr>
               <th class="span2">Name</th>
-              <th class="span7">Text</th>
-              <th class="span4">Date</th>
+              <th class="span6">Text</th>
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="msg in messages">
               <td class="span2" ng-bind="msg.name"></td>
-              <td class="span7" ng-bind="msg.text"></td>
-              <td class="span4" ng-bind="editDate(msg.datetime)"></td>
+              <td class="span6" ng-bind="msg.text + ' ' + editDate(msg.datetime)"></td>
             </tr>
           </tbody>
         </table>
@@ -28,8 +26,8 @@
           <form ng-submit="send()">
             <div class="span2"><input type="text" class="input-block-level" ng-model="name" ng-change="setName()" placeholder="Your Name"></div>
             <div class="input-append span7">
-              <input type="text" class="span6" ng-model="text" placeholder="Message">
-              <input type="submit" class="span1 btn btn-primary" value="Send" ng-disabled="!text">
+              <input type="text" class="span5" ng-model="text" placeholder="Message">
+              <input type="submit" class="span2 btn btn-primary" value="Send" ng-disabled="!text">
             </div>
           </form>
         </div>

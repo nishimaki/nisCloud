@@ -1,13 +1,13 @@
 'use strict';
 	// ---------------------------------
-	// コントローラー　AppCtrl
+	// コントローラー AppCtrl
 	// ---------------------------------
 	app.controller('AppCtrl'
 				, ['$rootScope', '$scope'
 				, function($rootScope, $scope) {
 
         $scope.init = function init() {
-          console.log("AppCtrl init")
+          console.log("AppCtrl init");
         };
 
         // 日付編集		
@@ -18,3 +18,4 @@
         };
 
 	}]);
+	

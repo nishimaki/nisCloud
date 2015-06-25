@@ -1,5 +1,5 @@
 	// ---------------------------------
-	// コントローラー　ChatCtrl
+	// コントローラー ChatCtrl
 	// ---------------------------------
     app.controller('ChatCtrl', function($rootScope, $scope, $controller) {
         
@@ -14,7 +14,7 @@
             $scope.text = '';
     
             $scope.init = function init() {
-              console.log("ChatCtrl init")
+              console.log("ChatCtrl init");
               socket.emit('reconnect', 'dummy');
             };
 
