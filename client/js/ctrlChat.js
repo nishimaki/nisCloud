@@ -15,6 +15,7 @@
     
             $scope.init = function init() {
               console.log("ChatCtrl init")
+              socket.emit('reconnect', 'dummy');
             };
 
             socket.on('connect', function () {

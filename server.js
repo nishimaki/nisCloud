@@ -29,9 +29,9 @@ var messages = [];
 var sockets = [];
 
 io.on('connection', function (socket) {
-    messages.forEach(function (data) {
-      socket.emit('message', data);
-    });
+    // messages.forEach(function (data) {
+    //   socket.emit('message', data);
+    // });
 
     sockets.push(socket);
 
@@ -63,6 +63,14 @@ io.on('connection', function (socket) {
         updateRoster();
       });
     });
+    
+    socket.on('reconnect', function (msg) {
+      updateRoster();
+      messages.forEach(function (data) {
+        socket.emit('message', data);
+      });
+    });
+    
   });
 
 function updateRoster() {
