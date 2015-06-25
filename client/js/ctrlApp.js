@@ -8,12 +8,17 @@
 	// Config
 	// ---------------------------------
   app.config (function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise("/home.portal");
     $stateProvider
       .state('home', {
           url: '/home',
           controller: 'AppCtrl',
           templateUrl: 'home.html'
+      })
+      .state('home.portal', {
+          url: '/portal',
+          controller: 'AppCtrl',
+          templateUrl: 'portal.html'
       })
       .state('settings', {
           url: '/settings',
@@ -24,7 +29,7 @@
           url: '/account',
           controller: 'SettingsCtrl',
           templateUrl: 'settings/profile.html'
-      })
+      });
   
   });
 
