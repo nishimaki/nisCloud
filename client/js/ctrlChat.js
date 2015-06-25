@@ -1,10 +1,10 @@
 	// ---------------------------------
 	// コントローラー　ChatCtrl
 	// ---------------------------------
-    app.controller('ChatCtrl', function($scope, $controller) {
+    app.controller('ChatCtrl', function($rootScope, $scope, $controller) {
         
         // AppCtrlから継承
-        $controller('AppCtrl', {$scope: $scope});
+        $controller('AppCtrl', {$rootScope: $rootScope, $scope: $scope});
     
             var socket = io.connect();
     
@@ -13,6 +13,10 @@
             $scope.name = '';
             $scope.text = '';
     
+            $scope.init = function init() {
+              console.log("ChatCtrl init")
+            };
+
             socket.on('connect', function () {
               $scope.setName();
             });
@@ -27,10 +31,6 @@
               $scope.$apply();
             });
     
-            $scope.init = function init() {
-              $scope.$apply();
-            };
-    
             $scope.send = function send() {
               console.log('Sending message:', $scope.text);
               socket.emit('message', $scope.text);
@@ -40,5 +40,12 @@
             $scope.setName = function setName() {
               socket.emit('identify', $scope.name);
             };
+            
+            // $rootScope.$on('$stateChangeStart', 
+            // function(event, toState, toParams, fromState, fromParams){ 
+            //   $scope.roster = names;
+            //   $scope.$apply();
+            // })
+
             
     });
