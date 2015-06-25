@@ -40,12 +40,5 @@
             $scope.setName = function setName() {
               socket.emit('identify', $scope.name);
             };
-            
-            // $rootScope.$on('$stateChangeStart', 
-            // function(event, toState, toParams, fromState, fromParams){ 
-            //   $scope.roster = names;
-            //   $scope.$apply();
-            // })
 
-            
     });

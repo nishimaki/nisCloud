@@ -23,8 +23,11 @@
       })
       .state('home.chat', {
           url: '/chat',
-          // controller: 'ChatCtrl',
           templateUrl: 'chat.html'
+      })
+      .state('setting', {
+          url: '/setting',
+          templateUrl: 'setting.html'
       });
   
   });
