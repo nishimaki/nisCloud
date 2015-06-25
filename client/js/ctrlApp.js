@@ -1,29 +1,32 @@
+'use strict';
 	// ---------------------------------
 	// モジュール
 	// ---------------------------------
-	var app = angular.module('myApp', ['ngRoute']);
+	var app = angular.module('myApp', ['ui.router']);
 
 	// ---------------------------------
 	// Config
 	// ---------------------------------
-    app.config (['$stateProvider',function($stateProvider) {
-      $stateProvider
-        .state('main', {
-            url: '/aa',
-            controller: 'AppCtrl',
-            templateUrl: 'main.html'
-        })
-        .state('settings', {
-            url: '/settings',
-            controller: 'SettingsCtrl',
-            templateUrl: 'settings.html'
-        })
-        .state('settings.profile', {
-            url: '/account',
-            controller: 'SettingsCtrl',
-            templateUrl: 'settings/profile.html'
-        })
-    }]);
+  app.config (function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/home");
+    $stateProvider
+      .state('home', {
+          url: '/home',
+          controller: 'AppCtrl',
+          templateUrl: 'home.html'
+      })
+      .state('settings', {
+          url: '/settings',
+          controller: 'SettingsCtrl',
+          templateUrl: 'settings.html'
+      })
+      .state('settings.profile', {
+          url: '/account',
+          controller: 'SettingsCtrl',
+          templateUrl: 'settings/profile.html'
+      })
+  
+  });
 
 	// ---------------------------------
 	// コントローラー　AppCtrl
