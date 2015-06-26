@@ -3,6 +3,7 @@ var path = require('path');
 
 var socketio = require('socket.io');
 var express = require('express');
+var routes = __dirname;
 
 // 外部モジュールの読み込み
 var appModule = require('./app_modules');
@@ -18,7 +19,10 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  app.use(express.cookieParser("hogehoge"));
+  app.use(express.session({secret: 'fugafuga'}));
   app.use(app.router);
+  // clientの静的ファイルを公開する
   app.use(express.static(path.resolve(__dirname, 'client')));
 
 });
@@ -33,11 +37,14 @@ appModule.chat.init(io);
 // ポータル初期処理
 appModule.portal.init(app);
 
+// ルートの初期設定
+// app.get('/setting', routes.setting);
 
 app.get('/user/:id', function(req, res){
   console.log("get!!");
   res.send('user ' + req.params.id);
 });
+
 
 // Http起動
 server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
