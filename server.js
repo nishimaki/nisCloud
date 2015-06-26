@@ -1,15 +1,16 @@
+
 var http = require('http');
 var path = require('path');
-
 var socketio = require('socket.io');
 var express = require('express');
-var routes = __dirname;
 
 // 外部モジュールの読み込み
 var appModule = require('./app_modules');
 // TEST
 var res = appModule.util.add(100,201);
 console.log("res:" + res);
+var res = appModule.ncmb.TestClass();
+
 
 // Http SocketIO設定
 var app = express();
@@ -38,8 +39,6 @@ appModule.chat.init(io);
 appModule.portal.init(app);
 
 // ルートの初期設定
-// app.get('/setting', routes.setting);
-
 app.get('/user/:id', function(req, res){
   console.log("get!!");
   res.send('user ' + req.params.id);
