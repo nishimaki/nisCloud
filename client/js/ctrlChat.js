@@ -7,7 +7,7 @@
         $controller('AppCtrl', {$rootScope: $rootScope, $scope: $scope});
     
             var socket = io.connect();
-    
+
             $scope.messages = [];
             $scope.roster = [];
             $scope.name = '';

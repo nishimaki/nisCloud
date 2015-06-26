@@ -18,7 +18,7 @@
       })
       .state('home.portal', {
           url: '/portal',
-          controller: 'AppCtrl',
+          // controller: 'PortalCtrl',
           templateUrl: 'portal.html'
       })
       .state('home.chat', {

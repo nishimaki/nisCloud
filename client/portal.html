@@ -1,11 +1,8 @@
-<div>
+<div ng-controller="PortalCtrl" ng-init="init()">
     <h3>ポータル</h3>
-    <table>
-        <tr>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>2</td>
-        </tr>
-    </table>
+    <ul class="example-animate-container">
+        <li class="animate-repeat" ng-repeat="portal in portalList">
+            [{{$index + 1}}] {{portal.title}}
+        </li>
+    </ul>
 </div>

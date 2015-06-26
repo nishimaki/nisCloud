@@ -1,11 +1,11 @@
 var messages = [];
 var sockets = [];
 
-module.exports.init = function (io) {
+module.exports.init = function (socket) {
     
     var async = require('async');
     
-    io.on('connection', function (socket) {
+    socket.on('connection', function (socket) {
         // messages.forEach(function (data) {
         //   socket.emit('message', data);
         // });
