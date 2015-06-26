@@ -1,8 +1,19 @@
+// ---------------------------------
+// Portalモジュール
+// ---------------------------------
 module.exports.init = function (moduleApp) {
 
-  moduleApp.get('/portal/:id', function(req, res){
+  //get(/portal)
+  moduleApp.get('/portal', function(req, res){
     console.log("portal get!!");
-    res.send('portal ' + req.params.id);
+    
+    var portalList = [
+      {title: 'タイトル１'},
+      {title: 'タイトル２'},
+      {title: 'タイトル３'}
+    ];
+    res.send(portalList);
+    
   });
 
 };

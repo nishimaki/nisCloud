@@ -1,7 +1,7 @@
 	// ---------------------------------
 	// コントローラー PortalCtrl
 	// ---------------------------------
-    app.controller('PortalCtrl', function($rootScope, $scope, $controller) {
+    app.controller('PortalCtrl', function($rootScope, $scope, $http, $controller) {
         
         // AppCtrlから継承
         $controller('AppCtrl', {$rootScope: $rootScope, $scope: $scope});
@@ -10,11 +10,11 @@
 
             $scope.init = function init() {
               console.log("PortalCtrl init");
-              $scope.portalList = [
-                {title: 'タイトル１'},
-                {title: 'タイトル２'},
-                {title: 'タイトル３'}
-              ];
+              
+        			$http.get('/portal').success(function(data) {
+      					$scope.portalList = data;
+        			});
+              
             };
 
     });
