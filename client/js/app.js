@@ -68,6 +68,6 @@
       this.isLoggedIn = function () {
           console.log('UserService');
           // TODO: implement it.
-          return true;
+          return false;
       };
   });
