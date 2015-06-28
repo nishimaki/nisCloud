@@ -1,6 +1,3 @@
-var NCMB = require("ncmb-latest.min").NCMB;
-
-NCMB.initialize("51eb52bd757e683f478b83012e77cbe63625301882bbc4972b412eabc19b5fde", "fcb51d2e05594e10b0f47ef258a6db9b30ac061932cedd33cfa63e1a930377f4");
 
 module.exports.TestClass = function () {
   var TestClass = NCMB.Object.extend("TestClass");

@@ -14,6 +14,7 @@ module.exports.init = function (moduleApp) {
         user: "hayo",
         pass: "fuga"
     };
+    
 
     var portalList = [
       {title: 'タイトル１'},

@@ -3,19 +3,25 @@
 	// コントローラー LoginCtrl
 	// ---------------------------------
 	app.controller('LoginCtrl'
-				, ['$rootScope', '$scope'
-				, function($rootScope, $scope) {
+				, ['$rootScope', '$scope', '$http'
+				, function($rootScope, $scope, $http) {
 
         $scope.init = function init() {
           console.log("LoginCtrl init");
-        };
 
 	      $scope.submit = function() {
-        	console.log("LoginCtrl submit");
 	        if ($scope.inputEmail) {
-						console.log("LoginCtrl submit:" + $scope.inputEmail);
-	        }
+        		var postData = {
+					    data: {
+					        email: $scope.inputEmail,
+					        password: $scope.inputPassword
+					      }
+						};
+    			$http.post('/login', postData, null).success(function(data) {
+  					$scope.portalList = data;
+    			});
+      		}
 	      };
-
+		};
 	}]);
 	

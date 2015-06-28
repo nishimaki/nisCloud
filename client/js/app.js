@@ -11,11 +11,11 @@
 	//      isLoginRequired:ログインが必要な画面
 	// ---------------------------------
   app.config (function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise("/");
     $stateProvider
       .state('home', {
           isLoginRequired: true,
-          url: '/home',
+          url: '/',
           // controller: 'AppCtrl',
           templateUrl: 'home.html'
       })
