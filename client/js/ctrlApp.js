@@ -6,6 +6,8 @@
 				, ['$rootScope', '$scope'
 				, function($rootScope, $scope) {
 
+        $scope.MessageList = [];
+
         $scope.init = function init() {
           console.log("AppCtrl init");
         };

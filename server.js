@@ -45,6 +45,7 @@ appModule.portal.init(app);
 //appModule.user.AddUser(NCMB);
 
 
+
 // ルートの初期設定
 app.get('/user/:id', function(req, res){
   console.log("get!!");

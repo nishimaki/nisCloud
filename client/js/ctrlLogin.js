@@ -3,22 +3,31 @@
 	// コントローラー LoginCtrl
 	// ---------------------------------
 	app.controller('LoginCtrl'
-				, ['$rootScope', '$scope', '$http'
-				, function($rootScope, $scope, $http) {
+				, ['$rootScope', '$scope', '$http', '$state', 'SharedService'
+				, function($rootScope, $scope, $http, $state, SharedService) {
 
         $scope.init = function init() {
           console.log("LoginCtrl init");
 
 	      $scope.submit = function() {
-	        if ($scope.inputEmail) {
+	        if ($scope.inputUserName) {
         		var postData = {
 					    data: {
-					        email: $scope.inputEmail,
+					        email: null,
+					        username: $scope.inputUserName,
 					        password: $scope.inputPassword
 					      }
 						};
     			$http.post('/login', postData, null).success(function(data) {
-  					$scope.portalList = data;
+					console.log("Loing result:" + data);
+					if (data == "OK") {
+						console.log("Loing OK!! GOTO Home");
+						SharedService.errorMessage.set("");
+						$state.go("home");
+					} else {
+						console.log("Loing NG!!");
+						SharedService.errorMessage.set("ログインエラー");
+					}
     			});
       		}
 	      };
