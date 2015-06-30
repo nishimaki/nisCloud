@@ -4,7 +4,16 @@ body {
 
 .navbar {
     margin-bottom: 5px !important;
-    
+}
+.navbar-inner {
+    height: 60px !important;
+}
+
+.clsMainTitle {
+}
+
+.clsTitleRightArea {
+    float:right ;    
 }
 
 .clsMenuLeft {
@@ -13,4 +22,8 @@ body {
 
 .clsMenuRight {
     
+}
+
+.clsLogoutBtn {
+    float:right ;    
 }

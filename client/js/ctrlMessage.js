@@ -9,14 +9,13 @@
         $scope.MessageList = [];
         
         $scope.$on('changedErrorMessage', function() {
-            console.log("[enter] changedErrorMessage");
+            // console.log("[enter] changedErrorMessage");
             $scope.MessageList = [];
-            var msg = SharedService.errorMessage.get();
+            var msg = SharedService.errorMessage;
             if (msg != undefined && msg != "") {
-              $scope.MessageList = [SharedService.errorMessage.get()];
+              $scope.MessageList = [SharedService.errorMessage];
             }
-						$scope.$apply();
-            console.log("[leave] changedErrorMessage");
+            // console.log("[leave] changedErrorMessage");
         });
 
 	}]);

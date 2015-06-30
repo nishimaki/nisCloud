@@ -14,7 +14,7 @@ module.exports.init = function (moduleApp, NCMB) {
       var passwd = req.body.data.password;
       NCMB.User.logIn(username, passwd, {
           success: function(user) {
-              console.log("ログイン成功");
+              console.log("ログイン　成功");
               // セッションに登録
               req.session.user = username;
               // ログイン完了
@@ -26,6 +26,15 @@ module.exports.init = function (moduleApp, NCMB) {
           }
       });
 
+  });
+  // ---------------------------------
+  // Logout
+  // ---------------------------------
+  moduleApp.get('/logout', function(req, res){
+      // セッションに登録
+      req.session.user = null;
+      // ログアウト完了
+      res.send('OK');
   });
   // ---------------------------------
   // Loginチェック

@@ -1,0 +1,19 @@
+<div ng-controller="HeaderCtrl" ng-init="init()">
+  <div class="Brand clsMainTitle">
+    <div class="navbar navbar-default navbar-embossed">
+      <div class="navbar-inner">
+        <a class="brand" href="#">{{Title}}</a>
+        <!--<ul class="nav">-->
+        <!--  <li class="active"><a href="#">Home</a></li>-->
+        <!--  <li><a href="#">Link</a></li>-->
+        <!--  <li><a href="#">Link</a></li>-->
+        <!--</ul>-->
+        <div class="clsTitleRightArea">
+          <div class="aaclsLogoutBtn">{{DateTime}}</div>
+          <div>
+            <button type="button" class="btn btn-default clsLogoutBtn" ng-click="logout()" ng-show="LoginStatus">ログアウト</button>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
