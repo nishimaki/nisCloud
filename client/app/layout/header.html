@@ -15,5 +15,17 @@
           </div>
         </div>
     </div>
+    <div class="clsSubTitle"></div>
+  </div>
+</div>
+<!--メッセージエリア-->
+<div class="clsMeesageArea" ng-controller="MessageCtrl">
+  <div class="alert alert-danger" role="alert" ng-show="ShowMessage">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <ul>
+      <li class="animate-repeat" ng-repeat="msg in MessageList">
+          {{msg}}
+      </li>
+    </ul>
   </div>
 </div>

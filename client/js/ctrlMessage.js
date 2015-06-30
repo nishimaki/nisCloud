@@ -6,7 +6,8 @@
 				, ['$scope', 'SharedService'
 				, function($scope, SharedService) {
 
-        $scope.MessageList = [];
+        $scope.MessageList = {};
+        $scope.ShowMessage = false;
         
         $scope.$on('changedErrorMessage', function() {
             // console.log("[enter] changedErrorMessage");
@@ -15,7 +16,13 @@
             if (msg != undefined && msg != "") {
               $scope.MessageList = [SharedService.errorMessage];
             }
-            // console.log("[leave] changedErrorMessage");
+            
+            // メッセージ領域の表示コントロール
+            if ($scope.MessageList == undefined || $scope.MessageList.length == 0) {
+                $scope.ShowMessage = false;
+            } else {
+                $scope.ShowMessage = true;
+            }
         });
 
 	}]);

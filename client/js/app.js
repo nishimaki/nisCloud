@@ -25,6 +25,11 @@
             // controller: 'PortalCtrl',
             templateUrl: 'portal.html'
         })
+        .state('home.mntCustmer', {
+            isLoginRequired: true,
+            url: '/mnt_custmer',
+            templateUrl: 'app/mnt/mnt_custmer.html'
+        })
         .state('home.chat', {
             isLoginRequired: true,
             url: '/chat',

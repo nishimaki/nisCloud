@@ -27,22 +27,12 @@
     <script src="/js/ctrlMessage.js"></script>
     <script src="/js/ctrlHeader.js"></script>
     <script src="/js/ctrlLogin.js"></script>
+    <script src="/js/ctrlMaintenance.js"></script>
+    
     <script src="/js/ctrlChat.js"></script>
     <script src="/js/ctrlPortal.js"></script>
     <!--ページ定義-->
     <section data-ng-include=" 'app/layout/header.html' " id="header" class="top-header"></section>
-    <div class="clsSubTitle"></div>
-    <!--メッセージエリア-->
-    <div class="alert alert-danger" role="alert">
-      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-      <div class="clsMeesageArea" ng-controller="MessageCtrl">
-        <ul>
-          <li class="animate-repeat" ng-repeat="msg in MessageList">
-              {{msg}}
-          </li>
-        </ul>
-      </div>
-    </div>
 
     <!--コンテンツ領域-->
     <div class="contents">
