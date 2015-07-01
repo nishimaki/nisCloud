@@ -1,26 +1,27 @@
 <div ng-controller="AppCtrl" ng-init="init()">
   <div class="row">
-    <div class="span2">
+    <div class="col-md-2">
       <ul class="nav nav-list well">
         <li>
-          <a ui-sref="home.portal">ポータル</a>
+          <a ui-sref="home.portal" class="glyphicon glyphicon-home"> ホーム</a>
         </li>
         <li>
-          <a ui-sref="home.chat">チャット</a>
+          <a ui-sref="home.chat" class="glyphicon glyphicon-pencil"> チャット</a>
         </li>
         <li>
-          <a ui-sref="setting">設定</a>
+          <a ui-sref="setting" class="glyphicon glyphicon-cog"> 設定</a>
         </li>
-        <li>保守
+        <li>
+          <a class="glyphicon glyphicon-wrench"> 保守</a>
           <ul>
             <li>
-              <a ui-sref="home.mntCustmer">顧客メンテナンス</a>
+              <a ui-sref="home.mntCustmer"> 顧客メンテナンス</a>
             </li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="span10">
+    <div class="col-md-10">
       <div ui-view></div>
     </div>
   </div>

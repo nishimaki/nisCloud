@@ -1,4 +1,4 @@
-'use strict';
+	'use strict';
 	// ---------------------------------
 	// コントローラー LoginCtrl
 	// ---------------------------------
@@ -26,7 +26,7 @@
 						// console.log("Loing OK!! GOTO Home");
 						SharedService.SetErrorMessage("");
 						SharedService.SetLoginStatus("LOGIN");
-						$state.go("home");
+						$state.go("home.portal");
 					} else {
 						// console.log("Loing NG!!");
 						SharedService.SetErrorMessage("ログインエラー");
@@ -36,4 +36,3 @@
 		};
 
 	}]);
-	

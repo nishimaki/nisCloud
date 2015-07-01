@@ -1,8 +1,18 @@
-  'use strict';
+    'use strict';
 	// ---------------------------------
 	// モジュール
 	// ---------------------------------
-	var app = angular.module('myApp', ['ui.router']);
+	var app = angular.module('myApp', 
+        	[
+        	     'ui.router'
+        	   // ,'app.app'
+        	   // ,'app.header'
+        	   // ,'app.login'
+        	   // ,'app.message'
+        	   // ,'app.chat'
+        	   // ,'app.portal'
+        	   // ,'app.maint'
+        	]);
 
 	// ---------------------------------
 	// Config
@@ -11,39 +21,39 @@
 	//      isLoginRequired:ログインが必要な画面
 	// ---------------------------------
     app.config (function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/home");
-    $stateProvider
-        .state('home', {
-            isLoginRequired: true,
-            url: '/home',
-            // controller: 'AppCtrl',
-            templateUrl: 'app/layout/home.html'
-        })
-        .state('home.portal', {
-            isLoginRequired: true,
-            url: '/portal',
-            // controller: 'PortalCtrl',
-            templateUrl: 'portal.html'
-        })
-        .state('home.mntCustmer', {
-            isLoginRequired: true,
-            url: '/mnt_custmer',
-            templateUrl: 'app/mnt/mnt_custmer.html'
-        })
-        .state('home.chat', {
-            isLoginRequired: true,
-            url: '/chat',
-            templateUrl: 'chat.html'
-        })
-        .state('setting', {
-            url: '/setting',
-            templateUrl: 'setting.html'
-        })
-        .state('login', {
-            url: '/login',
-            templateUrl: 'app/login/login.html'
-        });
-        
+        $urlRouterProvider.otherwise("/home");
+        $stateProvider
+            .state('home', {
+                isLoginRequired: true,
+                url: '/home',
+                // controller: 'AppCtrl',
+                templateUrl: 'app/layout/home.html'
+            })
+            .state('home.portal', {
+                isLoginRequired: true,
+                url: '/portal',
+                // controller: 'PortalCtrl',
+                templateUrl: 'portal.html'
+            })
+            .state('home.mntCustmer', {
+                isLoginRequired: true,
+                url: '/mnt_custmer',
+                templateUrl: 'app/mnt/mnt_custmer.html'
+            })
+            .state('home.chat', {
+                isLoginRequired: true,
+                url: '/chat',
+                templateUrl: 'chat.html'
+            })
+            .state('setting', {
+                url: '/setting',
+                templateUrl: 'setting.html'
+            })
+            .state('login', {
+                url: '/login',
+                templateUrl: 'app/login/login.html'
+            });
+            
     });
   
 	// ---------------------------------
@@ -110,10 +120,18 @@
             this.loginStatus = value;
             $rootScope.$broadcast("changedLoginStatus");
         };
+        // ---------------------------------
+        // タイトル
+        // ---------------------------------
+        service.title = {};
+        service.SetTitle = function(value){
+            this.title = value;
+            $rootScope.$broadcast("changedTitle");
+        };
 
         return service;
     }]);
-
+    
     // ---------------------------------
     // moment設定
     // ---------------------------------

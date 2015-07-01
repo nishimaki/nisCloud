@@ -1,8 +1,8 @@
-'use strict';
+  'use strict';
 	// ---------------------------------
 	// コントローラー AppCtrl
 	// ---------------------------------
-	app.controller('AppCtrl'
+  app.controller('AppCtrl'
 				, ['$rootScope', '$scope'
 				, function($rootScope, $scope) {
 
@@ -20,4 +20,3 @@
         };
 
 	}]);
-	

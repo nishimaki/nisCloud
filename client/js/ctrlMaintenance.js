@@ -1,7 +1,9 @@
+	'use strict';
 	// ---------------------------------
 	// コントローラー MaintenanceCtrl
 	// ---------------------------------
-    app.controller('MaintenanceCtrl', function($rootScope, $scope, $http, $controller) {
+	app.controller('MaintenanceCtrl'
+        , function($rootScope, $scope, $http, $controller) {
         
         // AppCtrlから継承
         $controller('AppCtrl', {$rootScope: $rootScope, $scope: $scope});
@@ -12,14 +14,14 @@
 
     });
 
-	// ---------------------------------
-	// ディレクティブ MaintenanceCtrl
-	// ---------------------------------
-    // app.directive('Maint_Test', function () {
-    //     return {
-    //         restrict: "A",
-    //         link: function () {
-    //             alert('これはテストです！');
-    //         }
-    //     };
-    // });
+    // ---------------------------------
+    // ディレクティブ MaintenanceCtrl
+    // ---------------------------------
+    app.directive('test', function () {
+        return {
+            restrict: "A",
+            link: function () {
+                alert('これはテストです！');
+            }
+        };
+    });

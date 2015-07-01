@@ -1,11 +1,12 @@
-'use strict';
+	'use strict';
 	// ---------------------------------
 	// コントローラー HeaderCtrl
 	// ---------------------------------
 	app.controller('HeaderCtrl'
 				, ['$rootScope', '$scope', '$http', '$interval', '$state', 'SharedService'
 				, function($rootScope, $scope, $http, $interval, $state, SharedService) {
-		$scope.Title = "◯△◯△システム";
+		$scope.SystemTitle = "◯△◯△システム";
+		$scope.Title = "";
 		$scope.LoginStatus = false;
 		$scope.DateTime = "";
 
@@ -37,5 +38,8 @@
             	$scope.LoginStatus = false;
             }
         });
+        $scope.$on('changedTitle', function() {
+            $scope.Title = SharedService.title;
+        });
+        
 	}]);
-	

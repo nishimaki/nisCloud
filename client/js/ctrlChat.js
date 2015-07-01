@@ -1,7 +1,9 @@
+	'use strict';
 	// ---------------------------------
 	// コントローラー ChatCtrl
 	// ---------------------------------
-    app.controller('ChatCtrl', function($rootScope, $scope, $controller) {
+	var addChat = app.controller('ChatCtrl'
+      , function($rootScope, $scope, $controller) {
         
         // AppCtrlから継承
         $controller('AppCtrl', {$rootScope: $rootScope, $scope: $scope});

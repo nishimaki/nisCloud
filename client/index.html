@@ -3,8 +3,11 @@
   <head>
     <title>Chat Example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!--<link rel="stylesheet" href="/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="/css/bootstrap-responsive.min.css">-->
     <!--<link rel="stylesheet" href="/css/bootflat.min.css">-->
     <!--<link rel="stylesheet" href="/css/flat-ui.min.css">-->
     <link rel="stylesheet" href="/css/app.css">
@@ -14,7 +17,8 @@
   <body>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/lib/jquery.min.js"></script>
-    <script src="/js/lib/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    
+    <!--<script src="/js/lib/bootstrap.min.js"></script>-->
     <script src="/js/lib/angular.min.js"></script>
     <script src="/js/lib/angular-ui-router.min.js"></script>
     <script src="/js/lib/moment-with-locales.min.js"></script>
@@ -31,12 +35,14 @@
     
     <script src="/js/ctrlChat.js"></script>
     <script src="/js/ctrlPortal.js"></script>
-    <!--ページ定義-->
-    <section data-ng-include=" 'app/layout/header.html' " id="header" class="top-header"></section>
 
-    <!--コンテンツ領域-->
-    <div class="contents">
-      <div ui-view></div>
-    </div>
+    <div class="contents-area">
+      <!--ページ定義-->
+      <section data-ng-include=" 'app/layout/header.html' " id="header" class="top-header-9"></section>
+      <!--コンテンツ領域-->
+      <div class="contents">
+        <div ui-view></div>
+      </div>
+    </<div>
   </body>
 </html>

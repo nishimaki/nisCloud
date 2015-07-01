@@ -1,9 +1,9 @@
 <div ng-controller="LoginCtrl" ng-init="init()">
-    <div class="login span8">
+    <div class="login col-md-8">
         <div class="card card-container">
             <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
             <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin" ng-submit="submit()">
+            <form class="form-signin  col-md-4" ng-submit="submit()">
                 <span id="reauth-email" class="reauth-email"></span>
                 <!--<input type="email" id="inputEmail" ng-model="inputEmail" class="form-control" placeholder="Email address" required autofocus>-->
                 <input type="username" id="inputUserName" ng-model="inputUserName" class="form-control" placeholder="User Name" required autofocus>
@@ -13,11 +13,11 @@
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div>
-                <button class="btn btn-primary btn-block btn-signin span4" type="submit">Sign in</button>
-            </form><!-- /form -->
+                <button class="btn btn-primary btn-signin col-md-4" type="submit">Sign in</button>
+            </form>
             <a href="#" class="forgot-password">
                 Forgot the password?
             </a>
-        </div><!-- /card-container -->
+        </div>
        </div>
     </div>
