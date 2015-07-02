@@ -5,9 +5,14 @@
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin  col-md-4" ng-submit="submit()">
                 <span id="reauth-email" class="reauth-email"></span>
-                <!--<input type="email" id="inputEmail" ng-model="inputEmail" class="form-control" placeholder="Email address" required autofocus>-->
-                <input type="username" id="inputUserName" ng-model="inputUserName" class="form-control" placeholder="User Name" required autofocus>
-                <input type="password" id="inputPassword" ng-model="inputPassword" class="form-control" placeholder="Password" required>
+                <div class="form-group">
+                    <label for="name">name</label>
+                    <input type="username" id="inputUserName" ng-model="inputUserName" class="form-control" placeholder="User Name" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="pass">パスワード</label>
+                    <input type="password" id="inputPassword" ng-model="inputPassword" class="form-control" placeholder="Password" required>
+                </div>
                 <div id="remember" class="checkbox">
                     <label>
                         <input type="checkbox" value="remember-me"> Remember me
