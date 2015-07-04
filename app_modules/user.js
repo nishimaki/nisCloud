@@ -1,7 +1,7 @@
 // ---------------------------------
 // Userモジュール
 // ---------------------------------
-module.exports.init = function (moduleApp, NCMB) {
+module.exports.init = function (moduleApp) {
 
   // ---------------------------------
   // Login処理

@@ -24,23 +24,23 @@ app.configure(function(){
 var server = http.createServer(app);
 var io = socketio.listen(server);
 
-// NCMB
-var NCMB = require("ncmb-latest.min").NCMB;
-NCMB.initialize("51eb52bd757e683f478b83012e77cbe63625301882bbc4972b412eabc19b5fde", "fcb51d2e05594e10b0f47ef258a6db9b30ac061932cedd33cfa63e1a930377f4");
-
 // 外部モジュールの読み込み
 var appModule = require('./app_modules');
 // TEST
-var res = appModule.util.add(100,201);
-console.log("res:" + res);
-// var res = appModule.ncmb.TestClass();
+// var res = appModule.util.add(100,201);
+// console.log("res:" + res);
+//appModule.ncmb.getTest();
+ncmb.getTest();
 
 // ユーザー初期処理
-appModule.user.init(app, NCMB);
+appModule.user.init(app);
 // チャット初期処理
 appModule.chat.init(io);
 // ポータル初期処理
 appModule.portal.init(app);
+// テストデータ
+//var res = appModule.util.testdata(app);
+var res = util.testdata(app);
 
 //appModule.user.AddUser(NCMB);
 
