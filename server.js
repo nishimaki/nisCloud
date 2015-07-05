@@ -32,6 +32,8 @@ ncmb.getTest();
 
 // ユーザー初期処理
 appModule.user.init(app);
+// 顧客初期処理
+appModule.custmer.init(app);
 // チャット初期処理
 appModule.chat.init(io);
 // ポータル初期処理

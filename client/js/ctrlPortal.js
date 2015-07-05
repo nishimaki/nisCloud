@@ -15,7 +15,7 @@
         $scope.init = function init() {
             console.log("PortalCtrl init");
             
-            SharedService.SetTitle("ポータル");
+            SharedService.SetTitle("ホーム");
           
     		$http.get('/portal').success(function(data) {
       			$scope.portalList = data;

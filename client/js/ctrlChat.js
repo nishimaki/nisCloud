@@ -3,7 +3,7 @@
 	// コントローラー ChatCtrl
 	// ---------------------------------
 	var addChat = app.controller('ChatCtrl'
-      , function($rootScope, $scope, $controller) {
+      , function($rootScope, $scope, $controller, SharedService) {
         
         // AppCtrlから継承
         $controller('AppCtrl', {$rootScope: $rootScope, $scope: $scope});
@@ -17,6 +17,8 @@
     
             $scope.init = function init() {
               console.log("ChatCtrl init");
+            SharedService.SetTitle("チャット");
+
               socket.emit('reconnect', 'dummy');
             };
 

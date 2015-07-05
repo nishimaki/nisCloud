@@ -8,4 +8,5 @@ module.exports = {
     chat: require('./chat'),
     portal: require('./portal'),
     user: require('./user'),
+    custmer: require('./custmer'),
 };
