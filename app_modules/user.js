@@ -50,6 +50,24 @@ module.exports.init = function(moduleApp) {
             res.send('NG');
         }
     });
+    // ---------------------------------
+    // regist
+    // ---------------------------------
+    moduleApp.post('/register', function(req, res) {
+        // メールアドレスを登録
+        var email = req.body.data.email;
+        
+        NCMB.User.requestAuthenticationMail(email, {
+            success: function() {
+                // 成功
+                res.send('OK');
+            },
+            error: function(error) {
+                // エラー
+                res.send('NG');
+            }
+        });
+    });
 
 };
 

@@ -52,6 +52,10 @@
             .state('login', {
                 url: '/login',
                 templateUrl: 'app/login/login.html'
+            })
+            .state('register', {
+                url: '/register',
+                templateUrl: 'app/login/register.html'
             });
             
     });
