@@ -6,6 +6,9 @@ NCMB.initialize("51eb52bd757e683f478b83012e77cbe63625301882bbc4972b412eabc19b5fd
 C_CUSTMER = 'RE_CUSTMER';
 RE_CUSTMER = NCMB.Object.extend(C_CUSTMER);
 
+C_ITEM = 'RE_ITEM';
+RE_ITEM = NCMB.Object.extend(C_ITEM);
+
 module.exports = {
     init: function() {},
     // ---------------------------------
@@ -25,8 +28,8 @@ module.exports = {
         if (id == 'RE_CUSTMER') {
             record = new RE_CUSTMER();
         }
-        if (id == 'RE_FIELDDATA') {
-            record = new RE_FIELDDATA();
+        if (id == 'RE_ITEM') {
+            record = new RE_ITEM();
         }
         // Modelの内容をRecordへ移送
         Object.keys(model).forEach(function(key) {
@@ -47,36 +50,26 @@ module.exports = {
     saveCustmer: function(custModel) {
         console.log("ncmb saveCustmer");
 
-        // 非同期処理
-        var promise = new NCMB.Promise();
-        setTimeout(function() {
-            // 顧客レコードへの変換
-            var custRec = ncmb.toRecord('RE_CUSTMER', custModel);
-            // console.log("ncmb saveCustmer 顧客レコードへの変換:" + angular.toJson(custRec));
-            // console.log("ncmb saveCustmer id:" + custRec.id);
+        // 顧客レコードへの変換
+        var custRec = ncmb.toRecord('RE_CUSTMER', custModel);
+        // console.log("ncmb saveCustmer 顧客レコードへの変換:" + angular.toJson(custRec));
+        // console.log("ncmb saveCustmer id:" + custRec.id);
 
-            // ログインしていない場合は更新しない
-            // if (isUndefined(ReDBService.getUserId())) {
-            //     return promise.resolve(true);
-            // }
+        // ログインしていない場合は更新しない
+        // if (isUndefined(ReDBService.getUserId())) {
+        //     return promise.resolve(true);
+        // }
 
-            // 保存
-            custRec.save({
-                success: function(result) {
-                    // console.log("ncmb saveCustmer result:" + result.toJson());
-                    if (util.isUndefined(result)) {
-                        console.log("ncmb saveCustmer save error");
-                        return promise.resolve(false);
-                    }
-                    return promise.resolve(true);
-                },
-                error: function(error) {
-                    console.log("ncmb saveCustmer() error:" + error);
-                    return promise.reject(error);
-                }
-            });
-        }, 0);
-        return promise;
+        // 保存
+        custRec.save({
+            success: function(result) {
+                return true;
+            },
+            error: function(error) {
+                console.log("ncmb saveCustmer() error:" + error);
+                return false;
+            }
+        });
     },
 
     addCustmer: function() {},

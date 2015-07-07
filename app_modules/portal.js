@@ -42,6 +42,14 @@ module.exports.init = function(moduleApp) {
         doc.addPage()
             .fontSize(25)
             .text('Here is some vector graphics...', 100, 100);
+        doc.font('fonts/ipam.ttf')
+            .fontSize(12)
+            .text('あいうえおテスト漢字Some text with an existing font!')
+            .moveDown(0.5);
+        doc.font('fonts/ipagp.ttf')
+            .fontSize(12)
+            .text('あいうえおテスト漢字Some text with an existing font!')
+            .moveDown(0.5);
 
         doc.save()
             .moveTo(100, 150)
@@ -62,7 +70,7 @@ module.exports.init = function(moduleApp) {
                 color: "#0000FF"
             })
             .link(100, 100, 160, 27, 'http://google.com/');
-        
+
         // var filename = 'output.pdf';
         // res.set({
         //     "Content-Disposition": 'attachment; filename="' + filename + '"'
@@ -71,4 +79,16 @@ module.exports.init = function(moduleApp) {
         doc.end();
 
     });
+
+    // mongo TEST
+    var model = require('./model/posts');
+    var Post = model.Post;
+
+    moduleApp.get('/mongo', function(req, res) {
+
+        Post.find({}, function(err, items) {
+            res.send(items);
+        });
+    });
+
 };

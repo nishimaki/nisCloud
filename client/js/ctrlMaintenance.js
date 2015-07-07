@@ -26,7 +26,7 @@
 
 	            hot1 = new Handsontable(container1, {
 	                data: $scope.custmerList,
-	                colHeaders: ['name', 'namekana', 'yuubin', 'addr'],
+	                colHeaders: ['氏名', 'カナ氏名', '郵便番号', '住所'],
 	                columns: [{
 	                    data: 'name',
 	                    readOnly: true
