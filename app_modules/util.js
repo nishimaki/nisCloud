@@ -29,31 +29,75 @@
 
     module.exports.testdata = function(moduleApp) {
 
+        // mongo TEST
+        var Item = require('./model/items').Item;
+        var Custmer = require('./model/custmers').Custmer;
+
+
         moduleApp.get('/createItem', function(req, res) {
             console.log("createItem get!!");
             var readCount = 0;
             var csv = require('ya-csv');
-            var reader = csv.createCsvFileReader('./csv/niscloud_items.csv');
-            reader.setColumnNames(['item', 'itemname', 'maker']);
+            // var reader = csv.createCsvFileReader('./csv/niscloud_items.csv');
+            var reader = csv.createCsvFileReader('./csv/item.csv');
+            reader.setColumnNames(['code', 'name', 'Kikaku', 'price', 'maker', 'salesDate']);
             reader.addListener('data', function(data) {
-
                 readCount++;
-                // 顧客レコードへの変換
-                var itemRec = ncmb.toRecord('RE_ITEM', data);
-
-                // 保存
-                itemRec.save({
-                    success: function(result) {
-                        return ;
-                    },
-                    error: function(error) {
-                        return ;
+                var newItem = new Item(data);
+                newItem.save(function(err) {
+                    if (err) {
+                        console.log("insert error:" + err);
                     }
                 });
             }).on('end', function() {
                 res.send("OK:" + readCount);
             });
         });
+        
+        moduleApp.get('/createCustmer', function(req, res) {
+            console.log("createCustmer get!!");
+            var readCount = 0;
+            var csv = require('ya-csv');
+            var reader = csv.createCsvFileReader('./csv/custmer.csv');
+            reader.setColumnNames(['code', 'name_sei', 'name_mei', 'kananame_sei', 'kananame_mei']);
+            reader.addListener('data', function(data) {
+                readCount++;
+                var newCustmer = new Custmer(data);
+                newCustmer.save(function(err) {
+                    if (err) {
+                        console.log("insert error:" + err);
+                    }
+                });
+            }).on('end', function() {
+                res.send("OK:" + readCount);
+            });
+        });
+        
+        // moduleApp.get('/createItem', function(req, res) {
+        //     console.log("createItem get!!");
+        //     var readCount = 0;
+        //     var csv = require('ya-csv');
+        //     var reader = csv.createCsvFileReader('./csv/niscloud_items.csv');
+        //     reader.setColumnNames(['item', 'itemname', 'maker']);
+        //     reader.addListener('data', function(data) {
+
+        //         readCount++;
+        //         // 顧客レコードへの変換
+        //         var itemRec = ncmb.toRecord('RE_ITEM', data);
+
+        //         // 保存
+        //         itemRec.save({
+        //             success: function(result) {
+        //                 return ;
+        //             },
+        //             error: function(error) {
+        //                 return ;
+        //             }
+        //         });
+        //     }).on('end', function() {
+        //         res.send("OK:" + readCount);
+        //     });
+        // });
 
         moduleApp.get('/createCust', function(req, res) {
             console.log("createCust get!!");
@@ -391,18 +435,18 @@
                 }
                 res.send("OK");
             });
-      
-/*            async..each(custList, function(cust) {
-                ncmb.saveCustmer(cust);
-                // // 処理1
-                // setTimeout(function() {
-                // 	ncmb.saveCustmer(cust);
-                // }, 5000);
 
-            }, function(err) {
-                res.send("OK");
-            });
-*/
+            /*            async..each(custList, function(cust) {
+                            ncmb.saveCustmer(cust);
+                            // // 処理1
+                            // setTimeout(function() {
+                            // 	ncmb.saveCustmer(cust);
+                            // }, 5000);
+
+                        }, function(err) {
+                            res.send("OK");
+                        });
+            */
             // __.each(custList, function(cust) {
             // 	var promise = new NCMB.Promise();
             // 	setTimeout(function() {

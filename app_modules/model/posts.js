@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://localhost/niscloud');
+var mongodb = mongoose.connect('mongodb://localhost/niscloud');
 
 function validator(v) {
     return v.length > 0;
 }
+
 
 var Post = new mongoose.Schema({
     name: {
@@ -24,4 +25,4 @@ var Post = new mongoose.Schema({
     }
 });
 
-exports.Post = db.model('Post', Post);
+exports.Post = mongodb.model('Post', Post);

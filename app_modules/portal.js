@@ -81,14 +81,14 @@ module.exports.init = function(moduleApp) {
     });
 
     // mongo TEST
-    var model = require('./model/posts');
-    var Post = model.Post;
+    // var model = require('./model/posts');
+    // var Post = model.Post;
 
-    moduleApp.get('/mongo', function(req, res) {
+    // moduleApp.get('/mongo', function(req, res) {
 
-        Post.find({}, function(err, items) {
-            res.send(items);
-        });
-    });
+    //     Post.find({}, function(err, items) {
+    //         res.send(items);
+    //     });
+    // });
 
 };
